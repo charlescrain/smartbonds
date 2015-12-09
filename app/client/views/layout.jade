@@ -1,0 +1,20 @@
+doctype
+html
+  head
+    title My - Smart Bonds
+    link(rel='stylesheet', href='/stylesheets/screen.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  body(class="container")
+    header
+      h1 Header
+    div(class="container" ng-app="app")
+      .main-content
+        block index
+  footer
+    script(src='http://localhost:3001/assets/lib/crypto-js/crypto-js.js')
+    script(src='http://localhost:3001/assets/lib/bignumber.js/bignumber.js')
+    //- script(src='http://localhost:3001/assets/lib/ethereum.js/dist/ethereum.js')
+    script(src='http://localhost:3001/assets/lib/web3/dist/web3.js')
+    script(src='http://localhost:3001/assets/lib/angular/angular.js')
+    script(src='http://localhost:3001/app.js')
+    script(src='http://localhost:3001/controllers/IndexController.js')
