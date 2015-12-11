@@ -20,7 +20,8 @@
         "path":"*",
         "html-entities":"*",
         "async":"*",
-        "compression":"*"
+        "compression":"*",
+        "mongoose":"*"
     }
 }
 

@@ -6,9 +6,6 @@ var UserSchema = new Schema({
 		type:String,
 		required:true
 	},
-	coupons: {
-		type: Schema.Types.ObjectId, ref:'Coupon',
-		required:true
-	}
+	coupons: [{type:Schema.Types.ObjectId, ref:'Coupon'}]
 });
 module.exports = mongoose.model('user', UserSchema);

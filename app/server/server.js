@@ -7,11 +7,15 @@ var express = require('express'),
 	_ = require('lodash'),
 	Entities = require('html-entities').XmlEntities,
 	async = require('async'),
+	mongoose = require('mongoose'),
 	compress = require('compression');
+
 
 
 var app = express();
 var entities = new Entities();
+
+mongoose.connect('mongodb://localhost/smartbonds');
 
 //Set View Engine
 app.set('views', path.normalize(__dirname + './../client/views'));
