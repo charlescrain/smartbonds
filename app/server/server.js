@@ -1,5 +1,6 @@
 var express = require('express'),
-	routes = require('./routes/routes'),
+	routes = require('./frontend/routes'),
+	api = require('./api/api'),
 	bodyParser = require('body-parser'),
 	sassMiddleware = require('node-sass-middleware'),
 	path = require('path'),
@@ -33,5 +34,6 @@ app.use(compress());
 //Set folder to find static resources
 app.use(express.static(path.normalize(__dirname + './../client')));
 app.use('/',routes);
+app.use('/api',api);
 
 module.exports = app;
