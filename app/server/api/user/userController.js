@@ -54,3 +54,16 @@ exports.put = function(req,res,next) {
 		})
 };
 
+exports.delete = function(req,res,next) {
+	User.findOneAndRemove({address:req.params.address})
+		.then(function(err,removedUser){
+			if(!err){
+				console.log(removedUser)
+				res.json(removedUser);
+			}
+			else{
+				res.json(err);
+			}
+		})
+};
+

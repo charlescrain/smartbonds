@@ -8,6 +8,6 @@ router.route('/')
 router.route('/:address')
 	.get(controller.getOne)
 	.put(controller.put)
-// 	.delete(controller.delete)
+	.delete(controller.delete)
 
 module.exports = router;
