@@ -9,12 +9,14 @@ html
       h1 Header
     div(class="container" ng-app="app")
       .main-content
-        block index
+        block content
   footer
     script(src='http://localhost:3001/assets/lib/crypto-js/crypto-js.js')
     script(src='http://localhost:3001/assets/lib/bignumber.js/bignumber.js')
     //- script(src='http://localhost:3001/assets/lib/ethereum.js/dist/ethereum.js')
     script(src='http://localhost:3001/assets/lib/web3/dist/web3.js')
     script(src='http://localhost:3001/assets/lib/angular/angular.js')
+    script(src='http://localhost:3001/assets/lib/ui-router/release/angular-ui-router.js')
     script(src='http://localhost:3001/app.js')
-    script(src='http://localhost:3001/controllers/IndexController.js')
+    script(src='http://localhost:3001/controllers/HomeController.js')
+    script(src='http://localhost:3001/controllers/LoginController.js')

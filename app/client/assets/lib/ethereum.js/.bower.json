@@ -58,7 +58,6 @@
     "commit": "fffc6c84a78b8e17e91e7d07dce00004cc3429f0"
   },
   "_source": "git://github.com/cubedro/ethereum.js.git",
-  "_target": "~0.0.15",
-  "_originalSource": "ethereum.js",
-  "_direct": true
+  "_target": "*",
+  "_originalSource": "ethereum.js"
 }

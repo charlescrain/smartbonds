@@ -11,6 +11,7 @@
     "angular-resource": "1.4.x",
     "angular-animate": "1.4.x",
     "angular-bootstrap": "latest",
+    "ui-router":"latest",
 
     "underscore": "latest",
     "web3": "~0.14.0",
