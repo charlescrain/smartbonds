@@ -3,6 +3,6 @@ block content
 	div(ng-controller="LoginCtrl")
 		h3 Please Login below:
 		form(name="login")
-			span Address
-			input
-			button(type="submit") Submit
+			span address
+			input(type="text" ng-model="user.address")
+			button(type="submit" ng-click="submit") Submit

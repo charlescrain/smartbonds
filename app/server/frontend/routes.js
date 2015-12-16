@@ -3,13 +3,13 @@ var router = require('express').Router();
 
 router.route('/')
 	.get(function(req, res){
-  res.render('index');
-});
+  	res.render('index');
+	});
 
-router.route('/login')
+router.route('/:partial')
 	.get(function(req, res){
-  res.render('login');
-});
+  	res.render(req.params.partial);
+	});
 
 
 module.exports = router;

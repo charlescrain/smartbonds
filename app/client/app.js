@@ -6,4 +6,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url:'/login',
 			templateUrl:'/login'
 		})
+		.state('register',{
+			url:'/register',
+			templateUrl:'/register'
+		})
 });
