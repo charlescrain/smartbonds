@@ -1,0 +1,16 @@
+extend layout
+block content
+	div(ng-controller="NewBondCtrl")
+		h3 Create a New Bond:
+		form(name="register")
+			span Address
+			input(type="text" ng-model="bond.address")
+			span parValue
+			input(type="text" ng-model="bond.parValue")
+			span interest
+			input(type="text" ng-model="bond.interest")
+			span secondsToMaturity
+			input(type="text" ng-model="bond.secondsToMaturity")
+			span frequency
+			input(type="text" ng-model="bond.frequency")
+			button(type="submit" ng-click="submit()") Submit

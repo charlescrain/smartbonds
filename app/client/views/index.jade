@@ -2,3 +2,21 @@ extend layout
 block content
 	div(ng-controller="HomeCtrl")
 		h2 Testing Web3
+		span Address
+		input(type="text" ng-model="user.address")
+		span Secret Key
+		input(type="text" ng-model="user.secretKey")
+		div
+			ul(style="list-style:none")
+				li(ng-repeat="bond in availableBonds")
+					span bond.owner
+					span bond.parValue
+					span bond.interest
+					span bond.secondsToMaturity
+					span bond.frequency
+		
+
+
+
+
+

@@ -10,4 +10,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url:'/register',
 			templateUrl:'/register'
 		})
+		.state('home',{
+			url:'/',
+			templateUrl:'/index'
+		})
+		.state('newBond',{
+			url:'/newBond',
+			templateUrl:'/newBond'
+		})
 });
