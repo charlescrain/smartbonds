@@ -15,12 +15,18 @@ exports.get = function(req,res,next){
 };
 
 exports.post = function(req,res,next) {
+	//have to turn numbers to strings before storing in mongo
+	// req.body.parValue = parseInt(req.body.parValue);
+	// req.body.interest = parseInt(req.body.interest);
+	// req.body.secondsToMaturity = parseInt(req.body.secondsToMaturity);
+	// req.body.frequency = parseInt(req.body.frequency);
 	console.log(req.body);
 	var newBond = new Bond(req.body);
 	newBond.save(function(err, addedBond){
 		if(!err)
 			res.json(addedBond);
 		else
+
 			res.json(err);
 	});
 };
