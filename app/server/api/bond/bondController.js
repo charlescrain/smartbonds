@@ -5,10 +5,11 @@ var _ = require('lodash');
 exports.get = function(req,res,next){
 	Bond.find({})
 		.then(function(err,bonds){
-			if(!err){
+			if(!err) {
 				res.json(coupons);
 			}
-			else{
+			else {
+				res.status(503);
 				res.json(err);
 			}
 		});

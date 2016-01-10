@@ -8,8 +8,10 @@ var UserSchema = new Schema({
 	},
 	address: {
 		type:String,
-		required:true
+		required:true,
+		index:true,
+		unique:true	
 	},
 	coupons: [{type:Schema.Types.ObjectId, ref:'Coupon'}]
 });
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

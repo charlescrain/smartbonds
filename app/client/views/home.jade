@@ -1,0 +1,36 @@
+//- extend layout
+//- block content
+div(ng-controller="HomeCtrl")
+	h2 Testing Web3
+	span Address
+	input(type="text" ng-model="user.address")
+	span Current Ether:
+	span(ng-model="user.ether" style="border:solid; border-width:1px; padding:2px") 1000
+
+	div
+		h3 Available Bonds
+		ul(style="list-style:none")
+			li(ng-repeat="bond in bonds")
+				span Owner : {{bond.owner}}, 
+				|Par Value : {{bond.parValue}},
+				|Interest : {{bond.interest}},
+				|Time to Maturity : {{bond.secondsToMaturity}},
+				|Frequency : {{bond.frequency}}
+				button(ng-click="purchaseBond(bond)") Buy Coupon
+		button(ui-sref="newBond") Create New Bond
+		div
+			h3 Purchased Coupons
+			ul(style="list-style:none")
+				li(ng-repeat="coupon in coupons")
+					span Bond Owner : {{coupon.bond.owner}},
+					|Time of Purchase : {{coupon.timePurchased}}, 
+					|Par Value : {{coupon.bond.parValue}},
+					|Interest : {{coupon.bond.interest}},
+					|Time to Maturity : {{coupon.bond.secondsToMaturity}},
+					|Frequency : {{coupon.bond.frequency}}
+		
+
+
+
+
+

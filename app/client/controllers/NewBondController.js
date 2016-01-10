@@ -4,9 +4,10 @@ var app = angular.module( 'app' );
 
 app.controller( 'NewBondCtrl', function($scope, $state, $http)  {
 	$scope.bond = {};
+	$scope.submitted = false;
 
-	$scope.submit = function(){
-		$http.post('http://localhost:3001/api/bond', $scope.bond)
+	$scope.submitFinal = function(){
+		$http.post('http://localhost:3001/api/bond', $scope.bond, {test:'sup'})
 			.then( function( res ){
 				console.log( res );
 				// $state.go( 'register', {}, { reload:true } );
@@ -14,7 +15,10 @@ app.controller( 'NewBondCtrl', function($scope, $state, $http)  {
 				console.log( error );
 				// state.go( 'login',{}, { reload:true } );
 			});
+	};
+	$scope.submit = function() {
+		$scope.submitted = true;
+	};
 
-	}
 
 });

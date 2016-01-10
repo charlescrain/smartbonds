@@ -1,10 +1,10 @@
-extend layout
-block content
-	div(ng-controller="RegisterCtrl")
-		h3 Please Login below:
-		form(name="register")
-			span Address
-			input(type="text" ng-model="user.address")
-			span Name
-			input(type="text" ng-model="user.name")
-			button(type="submit" ng-click="submit()") Submit
+//- extend layout
+//- block content
+div(ng-controller="RegisterCtrl")
+	h3 Please Register below:
+	form(name="register")
+		span Address 0x
+		input(type="text" ng-model="user.address")
+		span Name
+		input(type="text" ng-model="user.name")
+		button(type="submit" ng-click="submit()") Submit

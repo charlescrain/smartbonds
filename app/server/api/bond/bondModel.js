@@ -23,4 +23,4 @@ var BondSchema = new Schema({
 		required:true
 	}
 });
-module.exports = mongoose.model('bond', BondSchema);
+module.exports = mongoose.model('Bond', BondSchema);

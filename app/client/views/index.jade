@@ -1,22 +1,25 @@
-extend layout
-block content
-	div(ng-controller="HomeCtrl")
-		h2 Testing Web3
-		span Address
-		input(type="text" ng-model="user.address")
-		span Secret Key
-		input(type="text" ng-model="user.secretKey")
-		div
-			ul(style="list-style:none")
-				li(ng-repeat="bond in availableBonds")
-					span bond.owner
-					span bond.parValue
-					span bond.interest
-					span bond.secondsToMaturity
-					span bond.frequency
-		
-
-
-
-
-
+doctype
+html
+  head
+    title My - Smart Bonds
+    //- link(rel='stylesheet', href='/stylesheets/screen.css')
+    //- link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  body(class="container")
+    header
+      h1 Header
+    div(class="container" ng-app="app")
+      div(ui-view)
+      //- .main-content
+      //-   block content
+  footer
+    script(src='http://localhost:3001/assets/lib/crypto-js/crypto-js.js')
+    script(src='http://localhost:3001/assets/lib/bignumber.js/bignumber.js')
+    //- script(src='http://localhost:3001/assets/lib/ethereum.js/dist/ethereum.js')
+    script(src='http://localhost:3001/assets/lib/web3/dist/web3.js')
+    script(src='http://localhost:3001/assets/lib/angular/angular.js')
+    script(src='http://localhost:3001/assets/lib/ui-router/release/angular-ui-router.js')
+    script(src='http://localhost:3001/app.js')
+    script(src='http://localhost:3001/controllers/HomeController.js')
+    script(src='http://localhost:3001/controllers/LoginController.js')
+    script(src='http://localhost:3001/controllers/RegisterController.js')
+    script(src='http://localhost:3001/controllers/NewBondController.js')

@@ -1,5 +1,6 @@
 'use strict';
 var Coupon = require('./CouponModel');
+var Bond = require('../bond/BondModel');
 var _ = require('lodash');
 
 exports.get = function(req,res,next){
@@ -20,8 +21,10 @@ exports.post = function(req,res,next) {
 	newCoupon.save(function(err, addedCoupon){
 		if(!err)
 			res.json(addedCoupon);
-		else
+		else {
+			res.status(503);
 			res.json(err);
+		}
 	});
 };
 
@@ -67,10 +70,12 @@ exports.delete = function(req,res,next) {
 };
 
 exports.couponsByOwner = function(req,res,next) {
-	Coupon.find({owner:req.params.address})
-		.then(function(err,coupon){
+	Coupon.find({owner:req.params.address}).populate('bond')
+		.exec(function(err,coupons){
 			if(!err){
-				res.json(coupon);
+				console.log(coupons);
+				
+				res.json(coupons);
 			}
 			else{
 				res.json(err);

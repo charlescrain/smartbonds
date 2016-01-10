@@ -10,7 +10,7 @@ exports.get = function(req,res,next) {
 				res.json(users);
 			}
 			else{
-				res.json(err);
+				next(err);
 			}
 		});
 };
@@ -21,8 +21,10 @@ exports.post = function(req,res,next) {
 	newUser.save(function(err, addedUser){
 		if(!err)
 			res.json(addedUser);
-		else
-			res.json(err);
+		else {
+			res.status(503);
+			next(err);
+		}
 	});
 };
 
@@ -34,7 +36,7 @@ exports.getOne = function(req,res,next) {
 				res.json(user);
 			}
 			else{
-				res.json(err);
+				next(err);
 			}
 		})
 };
@@ -49,7 +51,7 @@ exports.put = function(req,res,next) {
 				});
 			}
 			else{
-				res.json(err);
+				next(err);
 			}
 		})
 };
@@ -62,7 +64,7 @@ exports.delete = function(req,res,next) {
 				res.json(removedUser);
 			}
 			else{
-				res.json(err);
+				next(err);
 			}
 		})
 };

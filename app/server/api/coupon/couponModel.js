@@ -9,7 +9,8 @@ var CouponSchema = new Schema({
 	timePurchased:{
 		type:Number,
 		required:true
-	}
+	},
+	bond: {type:Schema.Types.ObjectId, ref:'Bond'}
 	// need to implement multiple coupons
 	// numberPurchased:{
 	// 	type:Number,
@@ -17,4 +18,4 @@ var CouponSchema = new Schema({
 	// }
 });
 
-module.exports = mongoose.model('coupon', CouponSchema);
+module.exports = mongoose.model('Coupon', CouponSchema);

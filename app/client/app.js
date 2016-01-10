@@ -1,6 +1,7 @@
 var app = angular.module('app',['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider){
+	$urlRouterProvider.otherwise('/');
 	$stateProvider
 		.state('login',{
 			url:'/login',
@@ -12,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 		})
 		.state('home',{
 			url:'/',
-			templateUrl:'/index'
+			templateUrl:'/home'
 		})
 		.state('newBond',{
 			url:'/newBond',

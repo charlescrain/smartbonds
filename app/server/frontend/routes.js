@@ -6,9 +6,15 @@ router.route('/')
   	res.render('index');
 	});
 
+
 router.route('/:partial')
 	.get(function(req, res){
-  	res.render(req.params.partial);
+		if(req.params.partial === 'favicon.ico' ){
+			res.status(404);
+			res.send('Not Found');
+		}else{
+  		res.render(req.params.partial);
+		}
 	});
 
 
