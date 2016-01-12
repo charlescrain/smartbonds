@@ -5,13 +5,10 @@ var _ = require('lodash');
 exports.get = function(req,res,next) {
 
 	User.find({})
-		.then(function(err,users){
-			if(!err){
-				res.json(users);
-			}
-			else{
-				next(err);
-			}
+		.then(function(users){
+			res.json(users);
+		}, function(err){
+			next(err);
 		});
 };
 
@@ -30,42 +27,35 @@ exports.post = function(req,res,next) {
 
 exports.getOne = function(req,res,next) {
 	User.findOne({address:req.params.address})
-		.then(function(err,user){
-			if(!err){
-				console.log(user);
-				res.json(user);
-			}
-			else{
-				next(err);
-			}
-		})
+		.then(function(user){
+			console.log(user);
+			res.json(user);
+		}, function(err){
+			next(err);
+		});
 };
 
 exports.put = function(req,res,next) {
 	User.findOne({address:req.params.address})
-		.then(function(err,user){
-			if(!err){
-				_.merge(req.body, user);
-				user.save(function(err, changedUser){
-					res.json(user);
-				});
-			}
-			else{
-				next(err);
-			}
-		})
+		.then(function(user){
+			_.merge(req.body, user);
+			user.save(function(err, changedUser){
+				res.json(user);
+			});
+		}, function(err){
+			res.status(503);
+			next(err);
+		});
 };
 
 exports.delete = function(req,res,next) {
 	User.findOneAndRemove({address:req.params.address})
-		.then(function(err,removedUser){
-			if(!err){
-				console.log(removedUser)
-				res.json(removedUser);
-			}
-			else{
-				next(err);
-			}
-		})
+		.then(function(removedUser){
+			console.log(removedUser)
+			res.json(removedUser);
+		}, function(err){
+			res.status(503);
+			next(err);
+		});
 };
 

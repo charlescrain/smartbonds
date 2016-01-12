@@ -10,7 +10,7 @@ app.controller( 'HomeCtrl', function($scope,$http)  {
 
 	$http.get('http://localhost:3001/api/bond')
 			.then( function( res ){
-				console.log( res );
+				console.log('here', res);
 				$scope.bonds = res.data;
 
 				// $state.go( 'register', {}, { reload:true } );

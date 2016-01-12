@@ -4,85 +4,66 @@ var _ = require('lodash');
 
 exports.get = function(req,res,next){
 	Bond.find({})
-		.then(function(err,bonds){
-			if(!err) {
-				res.json(coupons);
-			}
-			else {
-				res.status(503);
-				res.json(err);
-			}
+			.then(function(bonds){
+			res.json(bonds);
+		}, function(err){
+			next(err);
 		});
 };
 
 exports.post = function(req,res,next) {
-	//have to turn numbers to strings before storing in mongo
-	// req.body.parValue = parseInt(req.body.parValue);
-	// req.body.interest = parseInt(req.body.interest);
-	// req.body.secondsToMaturity = parseInt(req.body.secondsToMaturity);
-	// req.body.frequency = parseInt(req.body.frequency);
-	console.log(req.body);
 	var newBond = new Bond(req.body);
 	newBond.save(function(err, addedBond){
 		if(!err)
 			res.json(addedBond);
-		else
-
-			res.json(err);
+		else{
+			res.status(503);
+			next(err);
+		}
 	});
 };
 
 exports.getBondById = function(req,res,next) {
 	Bond.findOne({_id:req.params.id})
-		.then(function(err,bond){
-			if(!err){
-				console.log(bond);
-				res.json(bond);
-			}
-			else{
-				res.json(err);
-			}
-		})
+		.then(function(bond){
+			console.log(bond);
+			res.json(bond);
+		}, function(err){
+			next(err);
+		});
 };
 
 exports.put = function(req,res,next) {
 	Bond.findOne({_id:req.params.id})
-		.then(function(err,bond){
-			if(!err){
-				_.merge(req.body, bond);
-				bond.save(function(err, changedBond){
-					res.json(bond);
-				});
-			}
-			else{
-				res.json(err);
-			}
-		})
+		.then(function(bond){
+			_.merge(req.body, bond);
+			bond.save(function(err, changedBond){
+				res.json(bond);
+			});
+		}, function(err){
+			res.status(403);
+			next(err);
+		});
 };
 
 exports.delete = function(req,res,next) {
 	Bond.findOneAndRemove({_id:req.params.id})
-		.then(function(err,removedBond){
-			if(!err){
-				console.log(removedBond)
-				res.json(removedBond);
-			}
-			else{
-				res.json(err);
-			}
-		})
+		.then(function(removedBond){
+			console.log(removedBond)
+			res.json(removedBond);
+		}, function(err){
+			res.status(403);
+			next(err);
+		});
 };
 
 exports.bondsByOwner = function(req,res,next) {
 	Bond.find({owner:req.params.address})
-		.then(function(err,bond){
-			if(!err){
-				res.json(bond);
-			}
-			else{
-				res.json(err);
-			}
-		})
+		.then(function(bond){
+			res.json(bond);
+		}, function(err) {
+			next(err);
+		});
 };
 
 
